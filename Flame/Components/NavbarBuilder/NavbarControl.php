@@ -42,13 +42,14 @@ class NavbarControl extends \Flame\Application\UI\Control
 	 * @param $label
 	 * @param string $link
 	 * @param null $parent
+	 * @param bool $seperated
 	 */
-	public function addNavbarItem($label, $link = '#', $parent = null)
+	public function addNavbarItem($label, $link = '#', $parent = null, $seperated = false)
 	{
 
 		if($parent !== null){
 			if(isset($this->navbarItems[$parent])){
-				$this->navbarItems[$parent]['subItems'][$label] = array('link' => $link);
+				$this->navbarItems[$parent]['subItems'][$label] = array('link' => $link, 'separated' => $seperated);
 				return;
 			}
 		}

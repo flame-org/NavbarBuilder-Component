@@ -9,7 +9,14 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{$label} <b class="caret"></b></a>
 
                     <ul class="dropdown-menu">
-                        <li n:foreach="$menuItem->subItems as $subLabel => $subItem"><a href="{plink $subItem->link}">{$subLabel}</a></li>
+						{var $divider = false}
+						{foreach $menuItem->subItems as $subLabel => $subItem}
+							{if $subItem->separated}
+								<li class="divider"></li>
+							{/if}
+
+                            <li><a href="{plink $subItem->link}">{$subLabel}</a></li>
+						{/foreach}
                     </ul>
 				{else}
                     <a href="{plink $menuItem->link}">{$label}</a>
