@@ -1,0 +1,21 @@
+<div class="nav-collapse collapse">
+    <ul class="nav">
+	{if count($menuItems)}
+		{foreach $menuItems as $label => $menuItem}
+
+            <li n:class="$presenter->isLinkCurrent($menuItem->link . '*') ? active">
+
+				{if count($menuItem->subItems)}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{$label} <b class="caret"></b></a>
+
+                    <ul class="dropdown-menu">
+                        <li n:foreach="$menuItem->subItems as $subLabel => $subItem"><a href="{plink $subItem->link}">{$subLabel}</a></li>
+                    </ul>
+				{else}
+                    <a href="{plink $menuItem->link}">{$label}</a>
+				{/if}
+            </li>
+		{/foreach}
+	{/if}
+    </ul>
+</div><!--/.nav-collapse -->

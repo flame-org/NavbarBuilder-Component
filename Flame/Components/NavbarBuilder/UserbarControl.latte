@@ -1,0 +1,13 @@
+<div class="btn-group pull-right">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="icon-user"></i> {$userName}
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+		{if count($menuItems)}
+			<li n:foreach="$menuItems as $menuItem"><a href="{plink $menuItem->link}">{$menuItem->label}</a></li>
+			<li class="divider"></li>
+		{/if}
+        <li><a href="{plink logout!}">Logout</a></li>
+    </ul>
+</div>
