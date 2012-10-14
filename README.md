@@ -25,7 +25,7 @@ Add the following dependency to your `composer.json` file and you're ready to go
 		...
 
 ###In base presenter
-
+```php
 	/**
 	 * @var \Flame\Components\NavbarBuilder\NavbarBuilderControlFactory $navbarBuilderControlFactory
 	 */
@@ -63,6 +63,7 @@ Add the following dependency to your `composer.json` file and you're ready to go
 
 		return $control;
 	}
+```
 
 ###In template (e.g. @layout.latte)
 
