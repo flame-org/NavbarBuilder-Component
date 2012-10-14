@@ -14,9 +14,29 @@ class NavbarControl extends \Flame\Application\UI\Control
 {
 
 	/**
+	 * @var string
+	 */
+	protected $templatePath;
+
+	/**
 	 * @var array
 	 */
 	private $navbarItems = array();
+
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->templatePath = __DIR__ . '/templates/NavbarControl.latte';
+	}
+
+	/**
+	 * @param $path
+	 */
+	public function setTemplatePath($path)
+	{
+		$this->templatePath = (string) $path;
+	}
 
 	/**
 	 * @param $label
@@ -38,7 +58,7 @@ class NavbarControl extends \Flame\Application\UI\Control
 
 	public function render()
 	{
-		$this->template->setFile(__DIR__ . '/NavbarControl.latte');
+		$this->template->setFile($this->templatePath);
 		$this->template->menuItems = $this->getObjectItems();
 		parent::render();
 	}
