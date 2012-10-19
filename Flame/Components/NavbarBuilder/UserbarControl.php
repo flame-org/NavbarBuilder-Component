@@ -14,6 +14,11 @@ class UserbarControl extends \Flame\Application\UI\Control
 {
 
 	/**
+	 * @var string
+	 */
+	protected $templatePath = '/templates/UserbarControl.latte';
+
+	/**
 	 * @var array
 	 */
 	private $menuItems = array();
@@ -21,26 +26,15 @@ class UserbarControl extends \Flame\Application\UI\Control
 	/**
 	 * @var string
 	 */
-	protected $templatePath;
-
-	/**
-	 * @var string
-	 */
 	private $userName;
-
-	public function __construct()
-	{
-		parent::__construct();
-
-		$this->templatePath = __DIR__ . '/templates/UserbarControl.latte';
-	}
 
 	/**
 	 * @param $path
+	 * @return string
 	 */
 	public function setTemplatePath($path)
 	{
-		$this->templatePath = (string) $path;
+		return $this->templatePath = (string) $path;
 	}
 
 	/**
@@ -54,15 +48,16 @@ class UserbarControl extends \Flame\Application\UI\Control
 
 	/**
 	 * @param $name
+	 * @return string
 	 */
 	public function setUserName($name)
 	{
-		$this->userName = (string) $name;
+		return $this->userName = (string) $name;
 	}
 
 	public function render()
 	{
-		$this->template->setFile($this->templatePath);
+		$this->template->setFile(__DIR__ . $this->templatePath);
 		$this->template->userName = $this->userName;
 		$this->template->menuItems = $this->getObjectItems();
 		parent::render();
