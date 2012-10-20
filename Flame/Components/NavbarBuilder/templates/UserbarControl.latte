@@ -5,7 +5,7 @@
     </a>
     <ul class="dropdown-menu">
 		{if count($menuItems)}
-			<li n:foreach="$menuItems as $menuItem"><a href="{plink $menuItem->link}">{$menuItem->label}</a></li>
+			<li n:foreach="$menuItems as $menuItem"><a href="{$menuItem->link}">{$menuItem->label}</a></li>
 			<li class="divider"></li>
 		{/if}
         <li><a href="{plink logout!}">Logout</a></li>

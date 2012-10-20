@@ -15,11 +15,11 @@
 								<li class="divider"></li>
 							{/if}
 
-                            <li><a href="{plink $subItem->link}">{$subLabel}</a></li>
+                            <li><a href="{$subItem->link}">{$subLabel}</a></li>
 						{/foreach}
                     </ul>
 				{else}
-                    <a href="{plink $menuItem->link}">{$label}</a>
+                    <a href="{$menuItem->link}">{$label}</a>
 				{/if}
             </li>
 		{/foreach}
