@@ -16,26 +16,20 @@ class NavbarControl extends \Flame\Application\UI\Control
 	/**
 	 * @var string
 	 */
-	protected $templatePath;
+	protected $templatePath = '/templates/NavbarControl.latte';
 
 	/**
 	 * @var array
 	 */
 	private $navbarItems = array();
 
-	public function __construct()
-	{
-		parent::__construct();
-
-		$this->templatePath = __DIR__ . '/templates/NavbarControl.latte';
-	}
-
 	/**
 	 * @param $path
+	 * @return string
 	 */
 	public function setTemplatePath($path)
 	{
-		$this->templatePath = (string) $path;
+		return $this->templatePath = (string) $path;
 	}
 
 	/**
@@ -59,7 +53,7 @@ class NavbarControl extends \Flame\Application\UI\Control
 
 	public function render()
 	{
-		$this->template->setFile($this->templatePath);
+		$this->template->setFile(__DIR__ . $this->templatePath);
 		$this->template->menuItems = $this->getObjectItems();
 		parent::render();
 	}
