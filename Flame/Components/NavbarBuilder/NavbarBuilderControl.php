@@ -14,6 +14,11 @@ class NavbarBuilderControl extends \Flame\Application\UI\Control
 {
 
 	/**
+	 * @var string
+	 */
+	protected $templatePath = '/templates/NavbarBuilderControl.latte';
+
+	/**
 	 * @var NavbarControl
 	 */
 	private $navbarControl;
@@ -28,19 +33,12 @@ class NavbarBuilderControl extends \Flame\Application\UI\Control
 	 */
 	private $title;
 
-	/**
-	 * @var string
-	 */
-	protected $templatePath;
-
 	public function __construct()
 	{
 		parent::__construct();
 
 		$this->navbarControl = new NavbarControl();
 		$this->userbarControl = new UserbarControl();
-
-		$this->templatePath = __DIR__ . '/templates/NavbarBuilderControl.latte';
 	}
 
 	/**
@@ -78,7 +76,7 @@ class NavbarBuilderControl extends \Flame\Application\UI\Control
 
 	public function render()
 	{
-		$this->template->setFile($this->templatePath);
+		$this->template->setFile(__DIR__ . $this->templatePath);
 		$this->template->title = $this->title;
 		parent::render();
 	}
