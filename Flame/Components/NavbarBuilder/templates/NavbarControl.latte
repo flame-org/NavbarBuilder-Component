@@ -3,13 +3,13 @@
 	{if count($menuItems)}
 		{foreach $menuItems as $label => $menuItem}
 
-            <li n:class="$presenter->isLinkCurrent($menuItem->link . '*') ? active">
+            <li class="dropdown" n:class="$presenter->isLinkCurrent($menuItem->link . '*') ? active">
 
 				{if count($menuItem->subItems)}
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{$label} <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#" role="button">{$label} <b class="caret"></b></a>
 
-                    <ul class="dropdown-menu">
-						{var $divider = false}
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+
 						{foreach $menuItem->subItems as $subLabel => $subItem}
 							{if $subItem->separated}
 								<li class="divider"></li>
