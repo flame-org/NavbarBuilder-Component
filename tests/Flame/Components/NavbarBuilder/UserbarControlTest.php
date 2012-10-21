@@ -23,17 +23,6 @@ class UserbarControlTest extends \Flame\Tests\TestCase
 		$this->userbarControl = new \Flame\Components\NavbarBuilder\UserbarControl();
 	}
 
-	public function testDefaultValueOfTemplatePath()
-	{
-		$this->assertAttributeEquals('/templates/UserbarControl.latte', 'templatePath', $this->userbarControl);
-	}
-
-	public function testSetTemplatePath()
-	{
-		$this->userbarControl->setTemplatePath('path');
-		$this->assertAttributeEquals('path', 'templatePath', $this->userbarControl);
-	}
-
 	public function testSetUserName()
 	{
 		//test default value

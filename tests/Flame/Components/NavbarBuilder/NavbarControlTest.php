@@ -23,17 +23,6 @@ class NavbarControlTest extends \Flame\Tests\TestCase
 		$this->navbarControl = new \Flame\Components\NavbarBuilder\NavbarControl();
 	}
 
-	public function testDefaultValueOfTemplatePath()
-	{
-		$this->assertAttributeEquals('/templates/NavbarControl.latte', 'templatePath', $this->navbarControl);
-	}
-
-	public function testSetTemplatePath()
-	{
-		$this->navbarControl->setTemplatePath('path');
-		$this->assertAttributeEquals('path', 'templatePath', $this->navbarControl);
-	}
-
 	public function testAddNavbarItem()
 	{
 		$this->assertAttributeCount(0, 'navbarItems', $this->navbarControl);

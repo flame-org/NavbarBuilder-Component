@@ -1,22 +1,24 @@
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
 
-			{if $title}
-            	<a class="brand" href="{plink $title->link}">{$title->label}</a>
-			{/if}
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 
-			{control navbar}
+				{if $title}
+					<a class="brand" href="{plink $title->link}">{$title->label}</a>
+				{/if}
 
-			{if $displayUserbar}
-				{control userbar}
-			{/if}
+				{control navbar}
 
-        </div>
-    </div>
-</div>
+				{if $displayUserbar}
+					{control userbar}
+				{/if}
+
+			</div>
+		</div>
+	</div>
+
