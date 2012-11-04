@@ -1,4 +1,4 @@
-#NavbarBuilder-Component
+#NavbarBuilder-Component [![Build Status](https://secure.travis-ci.org/flame-org/NavbarBuilder-Component.png?branch=master)](https://travis-ci.org/flame-org/NavbarBuilder-Component)
 
 ## About
 Nette Framework component for simple building of navigation (used TwitterBootstrap)
