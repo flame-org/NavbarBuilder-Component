@@ -40,10 +40,11 @@ class UserbarControl extends \Flame\Application\UI\Control
 	/**
 	 * @param $name
 	 * @param string $link
+	 * @param null $tBootstrapIcon
 	 */
-	public function addItem($name, $link = '#')
+	public function addItem($name, $link = '#', $tBootstrapIcon = null)
 	{
-		$this->menuItems[] = array('label' => $name, 'link' => $link);
+		$this->menuItems[] = array('label' => $name, 'link' => $link, 'icon' => $tBootstrapIcon);
 	}
 
 	/**

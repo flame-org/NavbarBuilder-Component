@@ -6,7 +6,11 @@
     <ul class="dropdown-menu">
 		{if count($menuItems)}
 			{foreach $menuItems as $menuItem}
-				<li><a href="{$menuItem->link}">{$menuItem->label}</a></li>
+				<li>
+					<a href="{$menuItem->link}">
+						{if $menuItem->icon}<i class="{$menuItem->icon}"></i>{/if} {$menuItem->label}
+					</a>
+				</li>
 			{/foreach}
 		{/if}
         <li class="divider"></li>

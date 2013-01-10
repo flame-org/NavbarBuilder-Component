@@ -23,18 +23,19 @@ class NavbarControl extends \Flame\Application\UI\Control
 	 * @param string $link
 	 * @param null $parent
 	 * @param bool $seperated
+	 * @param null $tBootstrapIcon
 	 */
-	public function addNavbarItem($label, $link = '#', $parent = null, $seperated = false)
+	public function addNavbarItem($label, $link = '#', $parent = null, $seperated = false, $tBootstrapIcon = null)
 	{
 
 		if($parent !== null){
 			if(isset($this->navbarItems[$parent])){
-				$this->navbarItems[$parent]['subItems'][$label] = array('link' => $link, 'separated' => $seperated);
+				$this->navbarItems[$parent]['subItems'][$label] = array('link' => $link, 'separated' => $seperated, 'icon' => $tBootstrapIcon);
 				return;
 			}
 		}
 
-		$this->navbarItems[$label] = array('link' => $link, 'subItems' => array());
+		$this->navbarItems[$label] = array('link' => $link, 'subItems' => array(), 'icon' => $tBootstrapIcon);
 	}
 
 	public function render()

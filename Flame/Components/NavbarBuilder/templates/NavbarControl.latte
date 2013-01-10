@@ -6,7 +6,9 @@
             <li class="dropdown" n:class="$presenter->isLinkCurrent($menuItem->link . '*') ? active">
 
 				{if count($menuItem->subItems)}
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#" role="button">{$label} <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#" role="button">
+							{if $menuItem->icon}<i class="{$menuItem->icon}"></i>{/if} {$label} <b class="caret"></b>
+					</a>
 
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 
@@ -15,11 +17,11 @@
 								<li class="divider"></li>
 							{/if}
 
-                            <li><a href="{$subItem->link}">{$subLabel}</a></li>
+                            <li><a href="{$subItem->link}">{if $subItem->icon}<i class="{$subItem->icon}"></i>{/if} {$subLabel}</a></li>
 						{/foreach}
                     </ul>
 				{else}
-                    <a href="{$menuItem->link}">{$label}</a>
+                    <a href="{$menuItem->link}">{if $menuItem->icon}<i class="{$menuItem->icon}"></i>{/if} {$label}</a>
 				{/if}
             </li>
             {if !$iterator->isLast()}<li class="divider-vertical"></li>{/if}
