@@ -22,6 +22,7 @@
                     <a href="{$menuItem->link}">{$label}</a>
 				{/if}
             </li>
+            {if !$iterator->isLast()}<li class="divider-vertical"></li>{/if}
 		{/foreach}
 	{/if}
     </ul>
