@@ -10,7 +10,7 @@
 
 namespace Flame\Components\NavbarBuilder;
 
-class NavbarBuilderControlFactory extends \Flame\Application\ControlFactory
+class NavbarBuilderControlFactory extends \Nette\Object
 {
 
 	public function create($data = null)
