@@ -25,7 +25,7 @@ class NavbarControl extends \Flame\Application\UI\Control
 	 * @param bool $seperated
 	 * @param null $tBootstrapIcon
 	 */
-	public function addNavbarItem($label, $link = '#', $parent = null, $seperated = false, $tBootstrapIcon = null)
+	public function addItem($label, $link = '#', $parent = null, $seperated = false, $tBootstrapIcon = null)
 	{
 
 		if($parent !== null){
