@@ -11,7 +11,7 @@ Add the following dependency to your `composer.json` file and you're ready to go
 ```json
 {
 	"require": {
-		"flame/navbarbuilder-component": "dev-master"
+		"flame/navbarbuilder-component": "@dev"
 	}
 }
 ```
@@ -20,24 +20,18 @@ Add the following dependency to your `composer.json` file and you're ready to go
 
 ###In config.neon
 
-	services:
-		NavbarBuilderControlFactory: Flame\Components\NavbarBuilder\NavbarBuilderControlFactory
+	factories:
+		navbarBuilderControl:
+            implement: \Flame\Components\NavbarBuilder\INavbarBuilderControlFactory
 		...
 
 ###In base presenter
 ```php
 	/**
-	 * @var \Flame\Components\NavbarBuilder\NavbarBuilderControlFactory $navbarBuilderControlFactory
+	 * @autowire
+	 * @var \Flame\Components\NavbarBuilder\INavbarBuilderControlFactory
 	 */
-	private $navbarBuilderControlFactory;
-
-	/**
-	 * @param \Flame\Components\NavbarBuilder\NavbarBuilderControlFactory $navbarBuilderControlFactory
-	 */
-	public function injectNavbarBuilderControlFactory(\Flame\Components\NavbarBuilder\NavbarBuilderControlFactory $navbarBuilderControlFactory)
-	{
-		$this->navbarBuilderControlFactory = $navbarBuilderControlFactory;
-	}
+	protected $navbarBuilderControlFactory;
 
 	/**
 	 * @return \Flame\Components\NavbarBuilder\NavbarBuilderControl
@@ -48,13 +42,13 @@ Add the following dependency to your `composer.json` file and you're ready to go
 		$control->setTitle('Dashboard', 'Dashboard:');
 
 		$navbar = $control->getNavbarControl();
-		$navbar->addNavbarItem('Posts', 'Post:');
-		$navbar->addNavbarItem('List', 'Post:', 'Posts');
-		$navbar->addNavbarItem('Import', 'Import:', 'Posts', true);
-		$navbar->addNavbarItem('Comments', 'Comment:', 'Posts');
+		$navbar->addItem('Posts', 'Post:');
+		$navbar->addItem('List', 'Post:', 'Posts');
+		$navbar->addItem('Import', 'Import:', 'Posts', true);
+		$navbar->addItem('Comments', 'Comment:', 'Posts');
 
-		$navbar->addNavbarItem('Newsreel', 'Newsreel:');
-		$navbar->addNavbarItem('Images', 'Image:');
+		$navbar->addItem('Newsreel', 'Newsreel:');
+		$navbar->addItem('Images', 'Image:');
 
 		$userbar = $control->getUserbarControl();
 		$userbar->addItem('Account settings', 'User:edit');
