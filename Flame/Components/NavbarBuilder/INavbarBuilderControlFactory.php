@@ -10,13 +10,12 @@
 
 namespace Flame\Components\NavbarBuilder;
 
-class NavbarBuilderControlFactory extends \Nette\Object
+interface INavbarBuilderControlFactory
 {
 
-	public function create($data = null)
-	{
-		$control = new NavbarBuilderControl();
-		return $control;
-	}
+	/**
+	 * @return NavbarBuilderControl
+	 */
+	public function create();
 
 }
