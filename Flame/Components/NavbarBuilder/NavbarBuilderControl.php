@@ -70,8 +70,9 @@ class NavbarBuilderControl extends \Flame\Application\UI\Control
 	 * @param $label
 	 * @param string $link
 	 */
-	public function setTitle($label, $link = '#')
+	public function setTitle($label, $link = null)
 	{
+		if($link === null) $link = $label . ':';
 		$this->title = \Nette\ArrayHash::from(array('label' => $label, 'link' => $link));
 	}
 
