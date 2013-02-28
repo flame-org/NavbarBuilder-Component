@@ -1,0 +1,12 @@
+<ul class="nav">
+{if count($menuItems)}
+	{foreach $menuItems as $label => $menuItem}
+
+        <li class="dropdown">
+            <a href="{$menuItem}">{$label}</a>
+
+        </li>
+			{if !$iterator->isLast()}<li class="divider-vertical"></li>{/if}
+	{/foreach}
+{/if}
+</ul>

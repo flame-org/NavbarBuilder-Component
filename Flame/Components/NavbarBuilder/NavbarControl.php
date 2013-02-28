@@ -13,43 +13,36 @@ namespace Flame\Components\NavbarBuilder;
 class NavbarControl extends \Flame\Application\UI\Control
 {
 
-	/**
-	 * @var array
-	 */
+	/** @var array */
 	private $navbarItems = array();
 
 	/**
 	 * @param $label
 	 * @param string $link
-	 * @param null $parent
-	 * @param bool $seperated
-	 * @param null $tBootstrapIcon
 	 */
-	public function addItem($label, $link = '#', $parent = null, $seperated = false, $tBootstrapIcon = null)
+	public function addItem($label, $link = '#')
 	{
+		$this->navbarItems[$label] = $link;
+	}
 
-		if($parent !== null){
-			if(isset($this->navbarItems[$parent])){
-				$this->navbarItems[$parent]['subItems'][$label] = array('link' => $link, 'separated' => $seperated, 'icon' => $tBootstrapIcon);
-				return;
-			}
-		}
-
-		$this->navbarItems[$label] = array('link' => $link, 'subItems' => array(), 'icon' => $tBootstrapIcon);
+	/**
+	 * @return array
+	 */
+	public function getItems()
+	{
+		return $this->navbarItems;
 	}
 
 	public function render()
 	{
-		$this->template->setFile(__DIR__ . '/templates/NavbarControl.latte');
 		$this->template->menuItems = $this->getObjectItems();
-		$this->template->render();
+		$this->template->setFile(__DIR__ . '/templates/NavbarControl.latte')->render();
 	}
 
 	public function renderCustom()
 	{
-		$this->template->setFile(__DIR__ . '/templates/NavbarControlCustom.latte');
 		$this->template->menuItems = $this->getObjectItems();
-		$this->template->render();
+		$this->template->setFile(__DIR__ . '/templates/Navbar.latte')->render();
 	}
 
 	/**

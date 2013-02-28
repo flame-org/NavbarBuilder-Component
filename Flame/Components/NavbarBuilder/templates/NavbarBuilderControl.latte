@@ -8,15 +8,11 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				{if $title}
-					<a class="brand" href="{plink $title->link}">{$title->label}</a>
-				{/if}
+				{if $title}<a class="brand" href="{plink $title->link}">{$title->label}</a>{/if}
 
 				{control navbar}
 
-				{if $displayUserbar}
-					{control userbar}
-				{/if}
+				{if $displayUserbar}{control userbar}{/if}
 
 			</div>
 		</div>
