@@ -70,24 +70,24 @@ class NavbarBuilderControl extends \Flame\Application\UI\Control
 	 * @param $label
 	 * @param string $link
 	 */
-	public function setTitle($label, $link = null)
+	public function setTitle($label, $link = '#')
 	{
-		if($link === null) $link = $label . ':';
 		$this->title = \Nette\ArrayHash::from(array('label' => $label, 'link' => $link));
 	}
 
 	public function render()
 	{
-		$this->template->setFile(__DIR__ . '/templates/NavbarBuilderControl.latte');
 		$this->template->title = $this->title;
 		$this->template->displayUserbar = $this->displayUserbar;
-		$this->template->render();
+		$this->template->setFile(__DIR__ . '/templates/NavbarBuilderControl.latte')->render();
 	}
 
 	public function renderCustom()
 	{
-		$this->template->setFile(__DIR__ . '/templates/NavbarBuilderControlCustom.latte');
-		$this->template->render();
+		$this->template->title = $this->title;
+		$this->template->custom = true;
+		$this->template->displayUserbar = $this->displayUserbar;
+		$this->template->setFile(__DIR__ . '/templates/NavbarBuilder.latte')->render();
 	}
 
 	/**
